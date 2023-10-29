@@ -1,8 +1,9 @@
 // index.js
 
 const express = require("express")
-//import express from 'express'
 const app = express()
+const cors = require("cors")
+app.use(cors())
 app.use(express.urlencoded({ extended: true}))
 app.use(express.json())
 const jwt = require("jsonwebtoken")
@@ -118,8 +119,9 @@ app.post("/user/login", async(req, res) => {
     }
     })
 
-app.listen(5050, () => {
-    console.log("Listening on localhost port 5050")
-})
+// Connecting to port
+const port = process.env.PORT || 5050
 
-// mongodb+srv://yarimasuka:<password>@cluster0.2jwlpgw.mongodb.net/?retryWrites=true&w=majority
+app.listen(port, () => {
+    console.log(`Listening on localhost port ${port}`)
+})
