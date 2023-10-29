@@ -53,7 +53,7 @@ app.put("/item/update/:id", auth, async(req, res) => {
             await ItemModel.updateOne({_id: req.params.id}, req.body)
             return res.status(200).json({message: "Update Item Success!"})
         }else{
-            throw new Error()
+            //throw new Error()
         }        
     }catch(err){
         return res.status(400).json({message: "Update Item Failed."})
@@ -69,7 +69,7 @@ app.delete("/item/delete/:id", auth, async(req, res) => {
             await ItemModel.deleteOne({_id: req.params.id})
             return res.status(200).json({message: "Delete Item Success!"})
         }else{
-            throw new Error()
+            //throw new Error()
         }
     }catch(err){
         return res.status(400).json({message: "Delete Item Failed."})
